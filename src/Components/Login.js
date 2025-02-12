@@ -2,8 +2,23 @@ import React from "react";
 import Header from "./Header";
 
 import { useState } from "react";
+import { Validate } from "./Utils/Validate";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const handleButtonSubmit = () => {
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    const message = Validate(name, email, password);
+    console.log(message);
+    setErrorMessage(message);
+  };
   const togglesignUp = () => {
     setIsSignInForm(!isSignInForm);
   };
@@ -17,53 +32,52 @@ const Login = () => {
         />
       </div>
 
-      <form className="w-full md:w-3/12 absolute p-8 bg-black my-36 mx-auto right-0 left-0 rounded-sm opacity-80">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="w-full md:w-3/12 absolute p-8 bg-black my-36 mx-auto right-0 left-0 rounded-sm opacity-80"
+      >
         <h1 className="py-4 mx-3 text-4xl text-white font-bold">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
           <input
+            value={name}
             type="text"
             placeholder="Full Name"
+            onChange={(e) => setName(e.target.value)}
             className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
           />
         )}
         <input
+          value={email}
           type="text"
-          placeholder="Email or mobile number"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
           className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
         />
         <input
+          value={password}
           type="password"
           placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
           className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
         />
-        {!isSignInForm && (
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
-          />
-        )}
-        <button className="m-2 py-3 w-full text-white bg-red-700 rounded-sm font-semibold">
+        <p className="text-red-700 m-2 font-semibold">{errorMessage}</p>
+        <button
+          className="m-2 py-3 w-full text-white bg-red-700 rounded-sm font-semibold"
+          onClick={handleButtonSubmit}
+        >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
-
-        {isSignInForm ? (
-          <p
-            className="text-white m-2 py-2 w-full cursor-pointer"
-            onClick={togglesignUp}
-          >
-            New to Netflix?Sign up now
-          </p>
-        ) : (
-          <p
-            className="text-white m-2 py-2 w-full cursor-pointer"
-            onClick={togglesignUp}
-          >
-            Already Registered?Sign in now!
-          </p>
-        )}
+        <p
+          className="text-white m-2 py-2 w-full cursor-pointer"
+          onClick={togglesignUp}
+        >
+          {isSignInForm
+            ? "New to Netflix?Sign up now"
+            : "Already Registered?Sign in now!"}
+        </p>
+        )
       </form>
     </div>
   );
