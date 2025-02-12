@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleButtonSubmit = () => {
     const message = Validate(
-      name.current.value,
+      name?.current?.value,
       email.current.value,
       password.current.value
     );
@@ -44,12 +44,14 @@ const Login = () => {
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
-          <input
-            ref={name}
-            type="text"
-            placeholder="Full Name"
-            className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
-          />
+          <div>
+            <input
+              ref={name}
+              type="text"
+              placeholder="Full Name"
+              className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
+            />
+          </div>
         )}
         <input
           ref={email}
