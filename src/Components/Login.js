@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "./Header";
 
 import { useState } from "react";
 import { Validate } from "./Utils/Validate";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  // const [name, setName] = useState(null);
+  // const [email, setEmail] = useState(null);
+  // const [password, setPassword] = useState(null);
+  const name = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
 
   const [errorMessage, setErrorMessage] = useState(null);
 
   const handleButtonSubmit = () => {
-    console.log(name);
-    console.log(email);
-    console.log(password);
-    const message = Validate(name, email, password);
-    console.log(message);
+    const message = Validate(
+      name.current.value,
+      email.current.value,
+      password.current.value
+    );
+
     setErrorMessage(message);
   };
   const togglesignUp = () => {
@@ -41,25 +45,22 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
-            value={name}
+            ref={name}
             type="text"
             placeholder="Full Name"
-            onChange={(e) => setName(e.target.value)}
             className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
           />
         )}
         <input
-          value={email}
+          ref={email}
           type="text"
           placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
           className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
         />
         <input
-          value={password}
+          ref={password}
           type="password"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
           className="m-2 py-4 px-2 w-full border border-white text-white bg-black rounded-sm"
         />
         <p className="text-red-700 m-2 font-semibold">{errorMessage}</p>
