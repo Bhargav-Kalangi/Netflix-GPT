@@ -19,3 +19,5 @@ to resolve the above error:
 - execute this command: npm install --save-dev ajv@^7
 - npm start
 - configure Tailwind css
+- login page created
+- sign in/sign up also created
