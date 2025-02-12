@@ -21,3 +21,7 @@ to resolve the above error:
 - configure Tailwind css
 - login page created
 - sign in/sign up also created
+- form validation
+- usage of useRef hook
+- creation of project in firebase
+- steps to deploy in firebase
