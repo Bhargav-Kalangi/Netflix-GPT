@@ -28,3 +28,4 @@ to resolve the above error:
 - configured Store and Userslice created
 - Manage users in Firebase 
 - useNavigation included
+- sign in , sign up ,sign out all are working
