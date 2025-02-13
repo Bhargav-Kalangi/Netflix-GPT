@@ -25,3 +25,6 @@ to resolve the above error:
 - usage of useRef hook
 - creation of project in firebase
 - steps to deploy in firebase
+- configured Store and Userslice created
+- Manage users in Firebase 
+- useNavigation included
