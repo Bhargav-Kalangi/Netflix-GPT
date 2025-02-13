@@ -8,7 +8,6 @@ import { useState } from "react";
 import { Validate } from "./Utils/Validate";
 import { auth } from "./Utils/firebase";
 import { useNavigate } from "react-router-dom";
-import Browse from "./Browse";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   // const [name, setName] = useState(null);
