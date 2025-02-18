@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import { Validate } from "./Utils/Validate";
 import { auth } from "./Utils/firebase";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "./Redux/Userslice";
 const Login = () => {
@@ -20,7 +20,7 @@ const Login = () => {
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
+
   const [errorMessage, setErrorMessage] = useState(null);
 
   const handleButtonSubmit = () => {
@@ -59,7 +59,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
+
               // ...
             })
             .catch((error) => {
@@ -86,7 +86,6 @@ const Login = () => {
           const user = userCredential.user;
           // console.log(user);
 
-          navigate("browse");
           // ...
         })
         .catch((error) => {
