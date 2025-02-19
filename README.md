@@ -29,3 +29,4 @@ to resolve the above error:
 - Manage users in Firebase 
 - useNavigation included
 - sign in , sign up ,sign out all are working
+- Register TMBD app
