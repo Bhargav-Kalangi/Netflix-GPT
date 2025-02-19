@@ -8,9 +8,10 @@ import {
 import { useState } from "react";
 import { Validate } from "./Utils/Validate";
 import { auth } from "./Utils/firebase";
-// import { useNavigate } from "react-router-dom";
+import { USER_AVATAR } from "./Utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "./Redux/Userslice";
+
 const Login = () => {
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -44,12 +45,10 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: name.current.value,
-            photoURL:
-              "https://www.comicsense.store/wp-content/uploads/2021/03/usopp_one_piece_bounty_wanted_poster_comicsense.jpg",
+            displayName: name?.current?.value,
+            photoURL: USER_AVATAR,
           })
             .then(() => {
-              // Profile updated!
               const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(
                 addUser({
@@ -59,12 +58,9 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-
-              // ...
             })
             .catch((error) => {
-              // An error occurred
-              // ...
+              setErrorMessage(error.message);
             });
 
           // ...
@@ -84,7 +80,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          // console.log(user);
 
           // ...
         })
