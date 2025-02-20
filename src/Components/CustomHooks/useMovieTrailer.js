@@ -12,11 +12,11 @@ const useMovieTrailer = (id) => {
       API_OPTIONS
     );
     let data = await MovieTrailer.json();
-    console.log(data.results);
+    // console.log(data.results);
     let filterData = data.results.filter((video) => video?.type === "Trailer");
     const trailer = filterData.length ? filterData[0] : data.results[0];
     dispatch(addTrailerVideo(trailer));
-    console.log(trailer);
+    // console.log(trailer);
   };
   useEffect(() => {
     getMovieTrailer();

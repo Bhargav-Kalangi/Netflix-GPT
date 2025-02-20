@@ -33,3 +33,7 @@ to resolve the above error:
 - create main container
    . create VideoTitle file which contains Title, description, play button, moreinfo button
    .create VideoBackground which contains youtube video
+- created secondary container
+ . create MovieList component, get title, poster_path secondary container as a prop, display title and MovieCards
+ . create moviecard and display all the cards
+ . created custom hooks for top rated, popular, Block buster, Tv series, upcoming movies
