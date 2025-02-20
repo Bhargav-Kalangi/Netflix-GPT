@@ -30,3 +30,6 @@ to resolve the above error:
 - useNavigation included
 - sign in , sign up ,sign out all are working
 - Register TMBD app
+- create main container
+   . create VideoTitle file which contains Title, description, play button, moreinfo button
+   .create VideoBackground which contains youtube video
