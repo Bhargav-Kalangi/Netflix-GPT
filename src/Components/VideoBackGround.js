@@ -9,11 +9,10 @@ const VideoBackGround = ({ id }) => {
   console.log(movieKey);
   useMovieTrailer(id);
   return (
-    <div>
+    <div className="w-screen">
       <iframe
-        width="560"
-        height="315"
-        src={"https://www.youtube.com/embed/" + movieKey}
+        className="w-screen aspect-video"
+        src={`https://www.youtube.com/embed/${movieKey}?autoplay=1&mute=1`}
         title="YouTube video player"
       ></iframe>
     </div>
