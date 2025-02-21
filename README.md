@@ -37,3 +37,7 @@ to resolve the above error:
  . create MovieList component, get title, poster_path secondary container as a prop, display title and MovieCards
  . create moviecard and display all the cards
  . created custom hooks for top rated, popular, Block buster, Tv series, upcoming movies
+ -new GPT page created
+   .we have created GPTSearchBar andserach button
+   .made multilingual button, by clicking on that button , serach placeholder and serach button will be updated to respected language
+   . language change will be available on GPT page
