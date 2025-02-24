@@ -25,3 +25,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "tamil", name: "Tamil" },
   { identifier: "telugu", name: "Telugu" },
 ];
+
+export const GEMINIAI_KEY = "AIzaSyAlCBMSLbzA7WyNS1rFqdQFGSoEPdn5f74";

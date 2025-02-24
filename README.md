@@ -41,3 +41,4 @@ to resolve the above error:
    .we have created GPTSearchBar andserach button
    .made multilingual button, by clicking on that button , serach placeholder and serach button will be updated to respected language
    . language change will be available on GPT page
+   . configSlice implemented , language details will be added in store
