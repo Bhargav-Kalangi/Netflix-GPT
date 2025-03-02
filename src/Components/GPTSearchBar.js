@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import lang from "./Utils/gptSearchLanguageSuggestion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import genAI from "./Utils/geminiai";
 import { API_OPTIONS } from "./Utils/constants";
+import { addGPTMovieResults } from "./Redux/gptSlice";
 
 const GPTSearchBar = () => {
+  const dispatch = useDispatch();
   const searchInput = useRef(null);
   const langKey = useSelector((store) => store.config.lang);
   //   console.log(langKey);
@@ -38,6 +40,12 @@ const GPTSearchBar = () => {
     // map function will make api calls subsequently , since searchMovieTMDB is async function,  once all the promises are resolved then only we will get GPTSuggestedMovies details from searchMovieTMDB
     let GPTSuggestedMovies = await Promise.all(promiseArray);
     console.log(GPTSuggestedMovies);
+    dispatch(
+      addGPTMovieResults({
+        movieNames: GPTMovies,
+        movieResults: GPTSuggestedMovies,
+      })
+    );
   };
   return (
     <div className=" pt-[10%] flex justify-center">
