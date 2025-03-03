@@ -55,11 +55,11 @@ const Header = () => {
   };
 
   return (
-    <div className="w-screen absolute px-8 py-2 bg-gradient-to-b from-gray-800 z-10 flex justify-between">
-      <img className="w-52" src={LOGO} alt="Netflix-logo" />
+    <div className="w-screen absolute px-8 py-2 bg-gradient-to-b from-gray-800 z-10 flex flex-col md:flex-row justify-between">
+      <img className="w-52  mx-auto md:mx-0" src={LOGO} alt="Netflix-logo" />
 
       {user && (
-        <div className="flex">
+        <div className="flex justify-between">
           {gpt && (
             <select
               className=" px-2 h-12 mr-4 mt-2 rounded-lg bg-slate-500 text-white font-semibold"
@@ -73,22 +73,24 @@ const Header = () => {
             </select>
           )}
           <button
-            className="text-white font-semibold bg-blue-300 mr-4 mt-2 px-2 h-12 rounded-lg"
+            className="text-white font-semibold bg-blue-300  mr-4 mt-2 px-2 h-12 rounded-lg "
             onClick={handleGPTsearch}
           >
             {gpt ? "HomePage" : "GPT Search"}
           </button>
-          <img
-            className="w-12 h-12 mt-2 border "
-            src={user.photoURL}
-            alt="usopp-icon"
-          />
-          <button
-            className="text-white font-bold mb-4 "
-            onClick={handleSignOut}
-          >
-            (Sign out)
-          </button>
+          <div>
+            <img
+              className="w-12 h-12 mt-2 border  rounded-lg "
+              src={user.photoURL}
+              alt="usopp-icon"
+            />
+            <button
+              className="text-white font-bold md:mb-4 mb-1 "
+              onClick={handleSignOut}
+            >
+              (Sign out)
+            </button>
+          </div>
         </div>
       )}
     </div>

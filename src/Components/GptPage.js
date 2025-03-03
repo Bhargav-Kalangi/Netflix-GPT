@@ -5,13 +5,20 @@ import { BG_URL } from "./Utils/constants";
 
 const GptPage = () => {
   return (
-    <div>
+    <>
       <div className="fixed -z-10">
-        <img src={BG_URL} alt="Netflix-bg-image" />
+        <img
+          src={BG_URL}
+          className=" md:h-fit h-screen object-cover "
+          alt="Netflix-bg-image"
+        />
       </div>
-      <GPTSearchBar />
-      <GptMovies />
-    </div>
+
+      <div>
+        <GPTSearchBar />
+        <GptMovies />
+      </div>
+    </>
   );
 };
 

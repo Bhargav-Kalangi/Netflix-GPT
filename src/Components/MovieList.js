@@ -7,7 +7,9 @@ const MovieList = ({ title, movies }) => {
   //   console.log(poster_path);
   return (
     <div className="px-6  ">
-      <h1 className="text-2xl font-bold text-white py-4">{title}</h1>
+      <h1 className=" text-lg md:text-2xl font-bold text-white py-4">
+        {title}
+      </h1>
       <div className="flex overflow-x-scroll ">
         <div className="flex">
           {movies?.map((movie) => (

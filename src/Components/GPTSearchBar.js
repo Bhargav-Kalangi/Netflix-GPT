@@ -21,7 +21,8 @@ const GPTSearchBar = () => {
     return json.results;
   };
   const handleGptSearchClick = async () => {
-    console.log(searchInput.current.value);
+    console.log(searchInput.current.value, "BhargavvvvS");
+    if (!searchInput.current.value) return null;
     const searchQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
       searchInput.current.value +
@@ -48,19 +49,19 @@ const GPTSearchBar = () => {
     );
   };
   return (
-    <div className=" pt-[10%] flex justify-center">
+    <div className="pt-[45%] md:pt-[10%] flex justify-center">
       <form
-        className=" w-1/2 bg-black grid grid-cols-12 rounded-lg"
+        className="w-full md:w-1/2 bg-black grid grid-cols-12 rounded-lg"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchInput}
           type="text"
           placeholder={lang[langKey].gptPlaceholder}
-          className=" p-4 m-4 col-span-9 rounded-lg"
+          className="  p-4 m-4 text-lg  col-span-7 md:col-span-9 rounded-lg"
         />
         <button
-          className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className=" col-span-5 md:col-span-3 m-4 py-2 px-6 bg-red-700 text-white rounded-lg"
           onClick={handleGptSearchClick}
         >
           {lang[langKey].search}
