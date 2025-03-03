@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 
 import { addNowPlayingMovies } from "../Redux/moviesSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../Utils/constants";
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
   const getLatestMovies = async () => {
     let Data = await fetch(
       "https://api.themoviedb.org/3/movie/now_playing?page=1",
@@ -15,7 +18,8 @@ const useNowPlayingMovies = () => {
     // console.log(json.results);
   };
   useEffect(() => {
-    getLatestMovies();
+    //if nowPlayingMovies is null, then only it will make an api call (memoization concept)
+    !nowPlayingMovies && getLatestMovies();
   }, []);
 };
 

@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../Utils/constants";
 import { addTrailerVideo } from "../Redux/moviesSlice";
 import { useEffect } from "react";
 
 const useMovieTrailer = (id) => {
   const dispatch = useDispatch();
+  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
   const getMovieTrailer = async () => {
     // console.log(id);
     let MovieTrailer = await fetch(
@@ -19,7 +20,8 @@ const useMovieTrailer = (id) => {
     // console.log(trailer);
   };
   useEffect(() => {
-    getMovieTrailer();
+    //if trailerVideo is null, then only it will make an api call (memoization concept)
+    !trailerVideo && getMovieTrailer();
   }, []);
 };
 export default useMovieTrailer;

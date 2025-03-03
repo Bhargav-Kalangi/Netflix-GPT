@@ -11,7 +11,7 @@ const GptMovies = () => {
     <div className="bg-black p-4 m-4 bg-opacity-80">
       {movieNames.map((movieName, index) => (
         <MovieList
-          key={movieName.title}
+          key={movieName}
           title={movieName}
           movies={movieResults[index]}
         />
